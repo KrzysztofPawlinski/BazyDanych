@@ -1,0 +1,47 @@
+CREATE TABLE "Samochody" (
+  "PK" ID pojazdu,
+  "Field" Model,
+  "Field" Marka,
+  "Field" Kolor,
+  "Field" Rok produkcji,
+  "Field" Typ paliwa,
+  "Field" Numer rejestracyjny,
+  "Field" Numer OC/AC,
+  "Field" Numer Win
+);
+
+CREATE TABLE "Klienci" (
+  "PK" ID klienta,
+  "Field" Imię,
+  "Field" Nazwisko,
+  "Field" Data urodzenia,
+  "Field" Numer telefonu,
+  "Field" Mail
+);
+
+CREATE TABLE "Kierowcy" (
+  "PK" ID kierowcy,
+  "Field" Nazwisko,
+  "Field" Imię,
+  "Field" Data urodzenia,
+  "Field" Tryp pracy,
+  "Field" Przepracowany czas,
+  "Field" Numer telefonu,
+  "Field" Aktualny status
+);
+
+CREATE TABLE "Zamówienia" (
+  "ID klienta" <type>,
+  "ID kierowcy" <type>,
+  "ID pojazdu" <type>,
+  "Numer rejestracyjny" <type>,
+  "Godzina rozpoczęcia kurs" <type>,
+  "Godzina zakończenia kursu" <type>,
+  "Ocena kierowcy" <type>,
+  "Cena za kilometr" <type>
+);
+
+CREATE INDEX "FK" ON  "Zamówienia" ("ID klienta", "ID kierowcy", "ID pojazdu");
+
+CREATE INDEX "Key" ON  "Zamówienia" ("Numer rejestracyjny", "Godzina rozpoczęcia kurs", "Godzina zakończenia kursu", "Ocena kierowcy", "Cena za kilometr");
+
